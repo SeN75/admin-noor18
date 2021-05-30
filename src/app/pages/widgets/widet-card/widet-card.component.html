@@ -1,0 +1,25 @@
+<div class=" {{withBorder ? 'card' : ''}} card-stats">
+    <div class="card-body ">
+        <div class="statistics statistics-horizontal">
+            <div class="info info-horizontal">
+                <div class="row">
+                    <div class="col-5">
+                        <div class="icon icon-primary icon-circle" *ngIf="withIcon">
+                            <i class="now-ui-icons {{info.icon}}"></i>
+                        </div>
+                    </div>
+                    <div class="col-7 text-right">
+                        <h6 class="stats-title">{{info.title}}</h6>
+                        <h3 class="info-title">{{info.message}}</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr *ngIf="withFooter" />
+    <div class="card-footer " *ngIf="withFooter">
+        <div class="stats">
+            <i class="now-ui-icons arrows-1_refresh-69"></i> {{info.footer}}
+        </div>
+    </div>
+</div>

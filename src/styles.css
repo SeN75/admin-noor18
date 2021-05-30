@@ -1,0 +1,25 @@
+/* You can add global styles to this file, and also import other style files */
+.card-hader-flex {
+  display: flex;
+  justify-content: space-between;
+  color: #fff;
+}
+
+.group-card {
+  background-color: #fff;
+  border: 1px solid #aeaeae;
+  border-radius: 5px;
+  padding: 50px;
+  margin: 10px;
+}
+.group-card:hover {
+  cursor: pointer;
+  border: 1px solid #7173ff;
+}
+
+.text-end {
+  text-align: right;
+}
+.text-start {
+  text-align: left;
+}

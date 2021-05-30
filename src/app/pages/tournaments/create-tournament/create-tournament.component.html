@@ -1,0 +1,155 @@
+<!--      Wizard container        -->
+<div class="wizard-container" #myWizard>
+    <div class="card card-wizard" data-color="red" id="wizardProfile">
+        <div class="card-header text-center" data-background-color>
+            <h3 class="card-title">{{'TOURNAMENTS.create-new-tournament' | translate}}</h3>
+            <h3 class="description">
+                This information will let us know more about you.
+            </h3>
+        </div>
+        <aw-wizard style="position: 'relative'">
+            <aw-wizard-step>
+                <div class="card-body">
+                    <ng-template awWizardStepTitle>
+                        <div class="moving-tab" style="transition: all 0.5s cubic-bezier(0.29, 1.42, 0.79, 1) 0s;"
+                            [ngStyle]="movingTabStyle" [innerHTML]="movingTabHTML">
+                        </div>
+                        <i class="now-ui-icons users_circle-08"></i>{{'FORM.genreal-info' | translate}}
+                    </ng-template>
+                    <div class="tab-content centered-content">
+                        <div class="tab-pane">
+                            <h5 class="info-text">
+                            </h5>
+
+                            <div class="row justify-content-center" [formGroup]="createForm">
+                                <div class="col-10 ">
+                                    <div class="row">
+                                        <div *ngFor="let input of inputs" class=" {{input.grid}}">
+                                            <label>{{input.name | translate}}</label>
+                                            <input type="text" [formControlName]="input.controlName"
+                                                class="form-control" placeholder="{{input.name | translate}}"
+                                                name="firstname" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-10">
+                                    <div class="row">
+                                        <h5 class="col-12 mt-5">{{'GAME.games' | translate }}</h5>
+                                        <div class="col-sm-12 col-md-6 col-lg" *ngFor="let game of games; index as i ">
+                                            <wizerd-checkbox (value)="gameSelect($event,i)" [title]="game.title"
+                                                [icon]="game.icon" [_choice]="game.selected">
+                                            </wizerd-checkbox>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-10">
+                                    <div class="row">
+                                        <h5 class="col-12">{{'PLATFORM.platform' | translate }}</h5>
+                                        <div class="col-sm-12 col-md-6 col-lg"
+                                            *ngFor="let platForm of platForms; index as i ">
+                                            <wizerd-checkbox (value)="palatformSelect($event,i)"
+                                                [title]="platForm.title" [icon]="platForm.icon"
+                                                [_choice]="platForm.selected" [color]="platForms.color">
+                                            </wizerd-checkbox>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <div class="pull-right">
+                        <button type="button" class="btn btn-next btn-fill btn-rose btn-wd mr-2 ml-2"
+                            (click)="formTournament()">
+                            {{'FORM.save' | translate}}
+                        </button>
+                        <button type="button" class="btn btn-next btn-fill btn-rose btn-wd mr-2 ml-2" awNextStep
+                            (click)="validateFirst(1)">
+                            {{'FORM.next' | translate}}
+                        </button>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            </aw-wizard-step>
+            <aw-wizard-step (stepEnter)="validateFirst(1)" [canEnter]="!step1.invalid">
+                <div class="card-body">
+                    <ng-template awWizardStepTitle>
+                        <i class="now-ui-icons ui-1_settings-gear-63"></i>Account
+                    </ng-template>
+                    <div class="tab-content centered-content">
+                        <div class="tab-pane" id="account">
+                            <h5 class="info-text"></h5>
+                            <div class="row justify-content-center" [formGroup]="createForm2">
+                                <div class="col col-sm-6 col-lg-4">
+                                    <label>{{'TOURNAMENTS.start-date' | translate}}</label>
+                                    <div class="form-group">
+                                        <input class="form-control datetimepicker" placeholder="yyyy-mm-dd" name="dp"
+                                            formControlName="startDate" ngbDatepicker #ds="ngbDatepicker"
+                                            (click)="ds.toggle()" data-color="orange" />
+                                    </div>
+                                </div>
+                                <div class="col col-sm-6 col-lg-4">
+                                    <label>{{'TOURNAMENTS.end-date' | translate}}</label>
+                                    <div class="form-group">
+                                        <input class="form-control datetimepicker" placeholder="yyyy-mm-dd" name="dp"
+                                            formControlName="endDate" ngbDatepicker #de="ngbDatepicker"
+                                            (click)="de.toggle()" data-color="orange" />
+                                    </div>
+                                </div>
+                                <div class="col col-sm-6 col-lg-4">
+                                    <label>{{'TOURNAMENTS.logo' | translate}}</label>
+                                    <div class="form-group">
+                                        <input type="email" formControlName="logo" class="form-control" />
+                                        <button class="btn btn-primary btn-sm">{{'SETTINGS.upload' |
+                                            translate}}</button>
+                                        <button class="btn btn-primary btn-sm">{{'SETTINGS.upload' |
+                                            translate}}</button>
+                                    </div>
+                                </div>
+                                <div class="col col-sm-6 col-lg-4">
+                                    <label>{{'TOURNAMENTS.discription' | translate}}</label>
+                                    <div class="form-group">
+                                        <textarea type="text" formControlName="descriptioon" class="form-control"
+                                            rows="3"> </textarea>
+                                    </div>
+                                </div>
+                                <div class="col col-sm-6 col-lg-4">
+                                    <label>{{'TOURNAMENTS.rules' | translate}}</label>
+                                    <div class="form-group">
+                                        <textarea type="text" formControlName="rule" class="form-control"
+                                            rows="3"> </textarea>
+                                    </div>
+                                </div>
+                                <div class="col col-sm-6 col-lg-4">
+                                    <label>{{'TOURNAMENTS.prize' | translate}}</label>
+                                    <div class="form-group">
+                                        <textarea type="text" formControlName="prize" class="form-control"
+                                            rows="3"> </textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <div class="pull-left">
+                        <button type="button" class="btn btn-next btn-fill btn-rose btn-wd mr-2 ml-2" awPreviousStep
+                            (click)="validateFirst(0)">
+                            {{'FORM.previous' | translate}}
+                        </button>
+                    </div>
+                    <div class="pull-right">
+                        <button type="button" class="btn btn-next btn-fill btn-rose btn-wd mr-2 ml-2"
+                            (click)="formTournament()">
+                            {{'FORM.save' | translate}}
+                        </button>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            </aw-wizard-step>
+
+        </aw-wizard>
+    </div>
+</div>
+<!-- wizard container -->

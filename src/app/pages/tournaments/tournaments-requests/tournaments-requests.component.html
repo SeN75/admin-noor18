@@ -1,0 +1,105 @@
+<div class="panel-header panel-header-lg">
+
+</div>
+
+<div class="main-content">
+
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <h6 class="card-title">
+                        {{'TOURNAMENTS.match-result' | translate}}
+                    </h6>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead class="">
+                                <tr>
+                                    <th>#</th>
+                                    <th>{{'TOURNAMENTS.name' | translate}}</th>
+                                    <th>{{'TOURNAMENTS.date' | translate}}</th>
+                                    <th>{{'TOURNAMENTS.owner' | translate}}</th>
+                                    <th class="text-right">{{'TOURNAMENTS.action' | translate}}</th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let tournament of tournamentsSrv.tournamentsData; index as i ">
+                                    <td>{{i + 1}}</td>
+                                    <td>{{tournament.name}}</td>
+                                    <td>{{tournament.createdDate | date}}</td>
+                                    <td>{{tournament.name }}</td>
+                                    <td class="text-right">
+                                        <button type="button" rel="tooltip"
+                                            class="btn btn-info btn-icon btn-sm margin-right">
+                                            <i class="now-ui-icons users_single-02"></i>
+                                        </button>
+
+                                        <button type="button" rel="tooltip"
+                                            class="btn btn-danger btn-icon btn-sm margin-right">
+                                            <i class="now-ui-icons ui-1_simple-remove"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <h6 class="card-title">
+                        {{'TOURNAMENTS.reject-requests' | translate}}
+                    </h6>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead class="">
+                                <tr>
+                                    <th>#</th>
+                                    <th>{{'TOURNAMENTS.name' | translate}}</th>
+                                    <th>{{'TOURNAMENTS.date' | translate}}</th>
+                                    <th>{{'TOURNAMENTS.owner' | translate}}</th>
+                                    <th class="text-right">{{'TOURNAMENTS.action' | translate}}</th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let tournament of tournamentsSrv.tournamentsData; index as i ">
+                                    <td>{{i + 1}}</td>
+                                    <td>{{tournament.name}}</td>
+                                    <td>{{tournament.createdDate | date}}</td>
+                                    <td>{{tournament.name }}</td>
+                                    <td class="text-right">
+                                        <button type="button" rel="tooltip"
+                                            class="btn btn-info btn-icon btn-sm margin-right">
+                                            <i class="now-ui-icons users_single-02"></i>
+                                        </button>
+                                        <!-- 
+                                        <button type="button" rel="tooltip"
+                                            class="btn btn-danger btn-icon btn-sm margin-right">
+                                            <i class="now-ui-icons ui-1_simple-remove"></i>
+                                        </button> -->
+                                    </td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

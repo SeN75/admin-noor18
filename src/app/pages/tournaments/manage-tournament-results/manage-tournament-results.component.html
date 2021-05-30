@@ -1,0 +1,56 @@
+<div class="panel-header panel-header-md pr-5 pl-5">
+    <div class="card-hader-flex ">
+        <h4 class="card-title">{{'TOURNAMENTS.mangage-result' | translate}}</h4>
+        <button class="btn btn-primary">
+            teszt </button>
+    </div>
+</div>
+<div class="main-content">
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="card-title">
+                        {{'TOURNAMENTS.info' | translate}}
+                    </h5>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col">
+                            {{tournament.name}}
+                        </div>
+                        <div class="col">
+                            {{tournament.startDate | date}}
+                        </div>
+                        <div class="col">
+                            {{tournament.gameId}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <h6 class="card-title">
+                        {{'TOURNAMENTS.groups' | translate}}
+                    </h6>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col group-card" *ngFor="let group of tournamentGroups;"
+                            routerLink="/tournaments/match-groups">
+                            <div class="">{{group.name}}</div>
+                            <div class="">{{group.name}}</div>
+                            <div class="">{{group.name}}</div>
+                            <div class="">{{group.name}}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

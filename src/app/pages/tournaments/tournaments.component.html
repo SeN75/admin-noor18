@@ -1,0 +1,153 @@
+<div class="panel-header panel-header-lg">
+    <canvas baseChart id="bigDashboardChart" [datasets]="lineBigDashboardChartData"
+        [labels]="lineBigDashboardChartLabels" [colors]="lineBigDashboardChartColors"
+        [options]="lineBigDashboardChartOptions" [chartType]="lineBigDashboardChartType"
+        (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)"></canvas>
+</div>
+<div class="main-content">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card card-stats">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="statistics">
+                                <div class="info">
+                                    <div class="icon icon-primary">
+                                        <i class="now-ui-icons ui-2_chat-round"></i>
+                                    </div>
+                                    <h3 class="info-title">859</h3>
+                                    <h6 class="stats-title">Messages</h6>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="statistics">
+                                <div class="info">
+                                    <div class="icon icon-success">
+                                        <i class="now-ui-icons business_money-coins"></i>
+                                    </div>
+                                    <h3 class="info-title"><small>$</small>3,521</h3>
+                                    <h6 class="stats-title">Today Revenue</h6>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="statistics">
+                                <div class="info">
+                                    <div class="icon icon-info">
+                                        <i class="now-ui-icons users_single-02"></i>
+                                    </div>
+                                    <h3 class="info-title">562</h3>
+                                    <h6 class="stats-title">Customers</h6>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="statistics">
+                                <div class="info">
+                                    <div class="icon icon-danger">
+                                        <i class="now-ui-icons objects_support-17"></i>
+                                    </div>
+                                    <h3 class="info-title">353</h3>
+                                    <h6 class="stats-title">Support Requests</h6>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="card">
+            <div class="card-header">
+                <h4 class="card-title">{{'TOURNAMENTS.tournaments' | translate}}</h4>
+            </div>
+            <div class="card-body">
+                <form class="row align-items-end">
+                    <div class="col">
+                        <label>{{'TOURNAMENTS.number' | translate}}</label>
+                        <div class="form-group">
+                            <input type="email" class="form-control" />
+                        </div>
+                    </div>
+                    <div class="col">
+                        <label>{{'TOURNAMENTS.name' | translate}}</label>
+                        <div class="form-group">
+                            <input type="email" class="form-control" />
+                        </div>
+                    </div>
+                    <div class="col">
+                        <label>{{'TOURNAMENTS.date' | translate}}</label>
+                        <div class="form-group">
+                            <input type="email" class="form-control" />
+                        </div>
+                    </div>
+                    <div class="col">
+                        <label>{{'TOURNAMENTS.owner' | translate}}</label>
+                        <div class="form-group">
+                            <input class="form-control datetimepicker" placeholder="yyyy-mm-dd" name="dp"
+                                [(ngModel)]="model" ngbDatepicker #d="ngbDatepicker" (click)="d.toggle()"
+                                data-color="orange" />
+                        </div>
+                    </div>
+                    <div class="col">
+                        <button class="btn btn-primary btn-round">{{'FORM.search' | translate}}</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header" style="display: flex; justify-content: space-between;">
+                    <h4 class="card-title">{{'TOURNAMENTS.current-tournaments' | translate}}</h4>
+                    <span class="btn btn-priamry btn-lg" routerLink="/tournaments/form-tournament">
+                        {{'TOURNAMENTS.create-new-tournament' | translate}}
+                    </span>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-shopping">
+                            <thead class="">
+                                <tr>
+                                    <th>#</th>
+                                    <th>{{'TOURNAMENTS.name' | translate}}</th>
+                                    <th>{{'TOURNAMENTS.date' | translate}}</th>
+                                    <th>{{'TOURNAMENTS.owner' | translate}}</th>
+                                    <th class="text-end">{{'FORM.actions' | translate}}</th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let tournament of tournamentsSrv.tournamentsData; index as i ">
+                                    <td>{{i + 1}}</td>
+                                    <td>{{tournament.name}}</td>
+                                    <td>{{tournament.createdDate | date}}</td>
+                                    <td>{{tournament.name }}</td>
+                                    <td class="text-end">
+                                        <button type="button" rel="tooltip" (click)="goToEdit(tournament)"
+                                            class="btn btn-info btn-icon btn-sm margin-right">
+                                            <i class="now-ui-icons users_single-02"></i>
+                                        </button>
+                                        <button type="button" rel="tooltip" (click)="goToResults(tournament)"
+                                            class="btn btn-success btn-icon btn-sm margin-right">
+                                            <i class="now-ui-icons ui-2_settings-90"></i>
+                                        </button>
+                                        <button type="button" rel="tooltip"
+                                            class="btn btn-danger btn-icon btn-sm margin-right">
+                                            <i class="now-ui-icons ui-1_simple-remove"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,97 @@
+<div class="panel-header panel-header-md pr-5 pl-5">
+    <div class="card-hader-flex ">
+        <h4 class="card-title">{{'TOURNAMENTS.manage' | translate}}</h4>
+        <div class="">
+            <a class="btn btn-primary btn-lg ">
+                back </a>
+            <a class="btn btn-primary btn-lg">
+                back </a>
+        </div>
+    </div>
+</div>
+<div class="main-content">
+    <div class="row">
+        <div class="col-12">
+            <div class="card pr-2 pl-2">
+                <div class="card-hader">
+                    <h4 class="card-title">
+                        {{'TOURNAMENTS.main' | translate}}
+                    </h4>
+                </div>
+                <div class="card-body">
+                    <div class="row align-items-center">
+                        <widet-card [info]="tounramentsName" [withIcon]="false" [withFooter]="false"
+                            [withBorder]="false" class="col-lg-3 col-sm-6">
+                        </widet-card>
+                        <widet-card [info]="tounramentsDate" [withIcon]="false" [withFooter]="false"
+                            [withBorder]="false" class="col-lg-3 col-sm-6">
+                        </widet-card>
+                        <!-- <widet-card [info]="info" class="col-lg-3 col-sm-6">
+                        </widet-card> -->
+                        <div class="col-lg-3 col-sm-6"></div>
+                        <div class="col-lg-3 col-sm-6">
+                            <a class="btn btn-primary btn-lg" (click)="goToForm()">
+                                {{'FORM.edit' | translate}}
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-12">
+            <div class="card pr-2 pl-2">
+                <div class="card-hader">
+                    <h4 class="card-title">
+                        {{'TOURNAMENTS.associate' | translate}}
+                    </h4>
+                </div>
+                <div class="card-body">
+                    <div class="row align-items-center">
+                        <widet-card [info]="tounramentsNumberOfParticipants" [withIcon]="true" [withFooter]="false"
+                            [withBorder]="false" class="col-lg-3 col-sm-6">
+                        </widet-card>
+                        <div class="col-lg-3 col-sm-6"></div>
+                        <div class="col-lg-3 col-sm-6"></div>
+
+                        <!-- <widet-card [info]="info" [withIcon]="true" [withFooter]="false" [withBorder]="false"
+                            class="col-lg-3 col-sm-6">
+                        </widet-card>
+                        <widet-card [info]="info" [withIcon]="true" [withFooter]="false" [withBorder]="false"
+                            class="col-lg-3 col-sm-6">
+                        </widet-card> -->
+                        <div class="col-lg-3 col-sm-6">
+                            <a class="btn btn-primary btn-lg">
+                                {{'FORM.edit' | translate}}
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-12">
+            <div class="card pr-2 pl-2">
+                <div class="card-hader">
+                    <h4 class="card-title">
+                        {{'FORM.registration-department' | translate}}
+                    </h4>
+                </div>
+                <div class="card-body">
+                    <div class="row align-items-center">
+                        <widet-card [info]="tounramentsRegSDate" [withIcon]="false" [withFooter]="false"
+                            [withBorder]="false" class="col-lg-3 col-sm-6">
+                        </widet-card>
+                        <widet-card [info]="tounramentsRegEDate" [withIcon]="false" [withFooter]="false"
+                            [withBorder]="false" class="col-lg-3 col-sm-6">
+                        </widet-card>
+                        <div class="col-lg-3 col-sm-6"></div>
+                        <div class="col-lg-3 col-sm-6">
+                            <a class="btn btn-primary btn-lg">
+                                {{'FORM.edit' | translate}}
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

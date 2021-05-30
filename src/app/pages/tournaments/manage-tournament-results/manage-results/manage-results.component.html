@@ -1,0 +1,124 @@
+<div class="panel-header panel-header-md pr-5 pl-5">
+    <div class="card-hader-flex ">
+        <h4 class="card-title">{{'TOURNAMENTS.mangage-result' | translate}}</h4>
+        <button class="btn btn-primary" routerLink="/tournaments/match-groups">
+            back </button>
+    </div>
+</div>
+<div class="main-content">
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="card-title">
+                        {{'TOURNAMENTS.info' | translate}}
+
+                    </h5>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col">
+                            {{tournament.name}}
+                        </div>
+                        <div class="col">
+                            {{tournament.starDate | date}}
+                        </div>
+                        <div class="col">
+                            {{tournament.gameId}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <h6 class="card-title">
+                        {{'MATCH.match-result' | translate}}
+                    </h6>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead class="text-primary">
+                                <tr>
+                                    <th class="text-center">#</th>
+                                    <th>Name</th>
+                                    <th class="text-center">P</th>
+                                    <th class="text-center">W</th>
+                                    <th class="text-center">D</th>
+                                    <th class="text-center">L</th>
+                                    <th class="text-center">F</th>
+                                    <th class="text-center">SF</th>
+                                    <th class="text-center">SA</th>
+                                    <th class="text-center">SD</th>
+                                    <th class="text-center">Pts</th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let result of tournamentRules; index as i">
+                                    <td class="text-center">{{i + 1}}</td>
+                                    <td>{{result.name}}</td>
+                                    <td class="text-center">0</td>
+                                    <td class="text-center">{{result.countOfWins}}</td>
+                                    <td class="text-center">{{result.countOfDraws}}</td>
+                                    <td class="text-center">{{result.countOflosses}}</td>
+                                    <td class="text-center">{{result.countOfWins}}</td>
+                                    <td class="text-center">{{result.countOflosses}}</td>
+                                    <td class="text-center">{{result.countOfDraws}}</td>
+                                    <td class="text-center">{{result.countOfDraws}}</td>
+                                    <td class="text-center">{{result.calculatePoints}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <h6 class="card-title">
+                        {{'MATCH.match-result' | translate}}
+                    </h6>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead class="text-primary">
+                                <tr>
+                                    <th class="text-center">#</th>
+                                    <th>Name</th>
+                                    <th class="text-center">P</th>
+                                    <th class="text-center">W</th>
+                                    <th class="text-center">D</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let result of tournamentRules; index as i">
+                                    <td class="text-center">{{i + 1}}</td>
+                                    <td>{{result.name}}</td>
+                                    <td class="text-center">{{result.countOfWins}}</td>
+                                    <td class="text-center">{{result.countOfWins}}</td>
+                                    <td class="text-center">{{result.countOfDraws}}</td>
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

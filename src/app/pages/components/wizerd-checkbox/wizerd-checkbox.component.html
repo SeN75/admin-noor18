@@ -1,0 +1,7 @@
+<div class="choice" data-toggle="wizard-checkbox" [ngClass]="{'active': _choice}" (click)="_choice = !_choice">
+    <input type="checkbox" name="design" value="Code" [checked]="_choice" />
+    <div class="icon">
+        <i class="now-ui-icons {{icon}}"></i>
+    </div>
+    <h6>{{title}}</h6>
+</div>
